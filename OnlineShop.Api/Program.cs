@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Api.Data;
 
