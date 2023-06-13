@@ -12,16 +12,6 @@ namespace OnlineShop.Api.Repositories
         {
             dbContext = _db;
         }
-        public Task<IEnumerable<ProductCategory>> GetCategories()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ProductCategory> GetCategory(int id)
-        {
-            throw new NotImplementedException();
-        }
-
         public Task<Product> GetItem(int id)
         {
             throw new NotImplementedException();
@@ -32,6 +22,18 @@ namespace OnlineShop.Api.Repositories
             var products = await _db.Products.ToListAsync();
 
             return products;
+        }
+
+        public async Task<IEnumerable<ProductCategory>> GetCategories()
+        {
+            var categories = await _db.ProductCategories.ToListAsync();
+
+            return categories;
+        }
+
+        public Task<ProductCategory> GetCategory(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

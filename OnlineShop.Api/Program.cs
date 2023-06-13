@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineShop.Api.Data;
+using OnlineShop.Api.Repositories;
+using OnlineShop.Api.Repositories.Contracts;
 
 namespace OnlineShop.Api
 {
@@ -19,6 +21,8 @@ namespace OnlineShop.Api
             builder.Services.AddDbContextPool<OnlineShopDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("OnlineShopConnection"))
             );
+
+            builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
             var app = builder.Build();
 
