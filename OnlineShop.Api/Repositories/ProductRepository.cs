@@ -7,10 +7,10 @@ namespace OnlineShop.Api.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private OnlineShopDbContext _db;
+        private readonly OnlineShopDbContext dbContext;
         public ProductRepository(OnlineShopDbContext dbContext)
         {
-            dbContext = _db;
+            this.dbContext = dbContext;
         }
         public Task<Product> GetItem(int id)
         {
@@ -19,14 +19,14 @@ namespace OnlineShop.Api.Repositories
 
         public async Task<IEnumerable<Product>> GetItems()
         {
-            var products = await _db.Products.ToListAsync();
+            var products = await this.dbContext.Products.ToListAsync();
 
             return products;
         }
 
         public async Task<IEnumerable<ProductCategory>> GetCategories()
         {
-            var categories = await _db.ProductCategories.ToListAsync();
+            var categories = await this.dbContext.ProductCategories.ToListAsync();
 
             return categories;
         }
