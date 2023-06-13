@@ -3,9 +3,9 @@ using OnlineShop.Api.Entities;
 
 namespace OnlineShop.Api.Data
 {
-    public class OnlineShopDbContext:DbContext
+    public class OnlineShopDbContext : DbContext
     {
-        public OnlineShopDbContext(DbContextOptions<OnlineShopDbContext>options):base(options)
+        public OnlineShopDbContext(DbContextOptions<OnlineShopDbContext> options) : base(options)
         {
 
         }
